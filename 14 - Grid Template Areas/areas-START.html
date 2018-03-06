@@ -29,7 +29,42 @@
     .container {
       display: grid;
       grid-gap: 20px;
+      grid-template-columns: 1fr 10fr 1fr;
+      grid-template-rows: auto 150px 100px;
+      grid-template-areas:
+        "sidebar-left   content   sidebar-right"
+        "sidebar-left   content   sidebar-right"
+        "footer         footer    ."
     }
+
+    .footer {
+      grid-area: footer;
+    }
+
+    .item1 {
+      grid-area: sidebar-left;
+    }
+    .item3 {
+      grid-area: sidebar-right;
+    }
+
+    .item2 {
+      grid-area: content;
+    }
+
+    @media(max-width: 700px) {
+      .container {
+        /*Check that media-query works*/
+        background-color: salmon;
+
+        /*Redefine grid areas*/
+        grid-template-areas:
+          "content        content         content"
+          "sidebar-left   sidebar-left    sidebar-right"
+          "footer         footer          footer"
+      }
+    }
+
   </style>
 </body>
 
