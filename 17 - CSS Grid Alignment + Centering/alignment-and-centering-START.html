@@ -14,7 +14,7 @@
     <div class="itm itm2">2</div>
     <div class="itm itm3">3</div>
     <div class="itm itm4">4</div>
-    <div class="itm itm5">5</div>
+    <div class="itm itm5">Wes Is CoolWes Is </div>
     <div class="itm itm6">6</div>
     <div class="itm itm7">7</div>
     <div class="itm itm8">8</div>
@@ -54,23 +54,54 @@
 
   <style>
     /*
+      // These align grid-items
       justify-items:
       align-items:
 
+      // These tell what to do with extra space in grid container:
       justify-content:
       align-content:
+
 
       align-self:
       justify-self:
 
-      justify-* is row axis
-      align-* is column axis
+      justify-* is row axis (X-axis)
+      align-* is column axis (Y-axis)
     */
 
     .container {
       display: grid;
+      border: 10px solid coral;
+      height: 500px;
       grid-gap: 20px;
-      grid-template-columns: repeat(10, 1fr);
+      grid-template-columns: repeat(5, 130px);
+      /*grid-template-rows: repeat(5, 100px);*/
+      /*Also works:*/
+      /*justify-items: flex-end; */
+      justify-items: end;
+
+      /*Rows need height to have effect*/
+      align-items: center;
+      
+      /*Perfect centering*/
+      /*justify-items: center;*/
+      /*align-items: center;*/
+
+      /*Shortcut for previous*/
+      place-items: stretch stretch;
+
+      justify-content: space-between;
+      align-content: end;
+    }
+
+    .itm {
+      background-color: greenyellow;
+    }
+
+    .itm5 {
+      justify-self: center;
+      align-self: start;
     }
   </style>
 </body>
