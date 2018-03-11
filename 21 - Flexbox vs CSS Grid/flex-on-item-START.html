@@ -20,8 +20,13 @@
   </div>
 
   <style>
+    /*Flexbox style*/
+    /*
     .controls {
       margin: 200px 0;
+      display: flex;
+      // Vertically center:
+      align-items: center;
     }
 
     .scrubber {
@@ -29,6 +34,25 @@
       height: 10px;
       min-width: 100px;
       border-radius: 10px;
+      flex: 1;
+    }
+    */
+
+    /*Now Grid style*/
+    .controls {
+      margin: 200px 0;
+      display: grid;
+      grid-template-columns: auto auto auto 1fr auto auto;
+      /*// Vertically center:*/
+      align-items: center;
+    }
+
+    .scrubber {
+      background: #BADA55;
+      height: 10px;
+      min-width: 100px;
+      border-radius: 10px;
+      /*flex: 1;*/
     }
   </style>
 
