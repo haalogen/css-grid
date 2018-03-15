@@ -1,4 +1,5 @@
 body {
+  background-image: url(./images/topography.svg), linear-gradient(110deg, #f93d66, #6d47d9);
   font-size: 15px;
 }
 
@@ -12,3 +13,236 @@ img {
   max-width: 100%;
 }
 
+
+/* Whole site wrapper */
+.wrapper {
+  display: grid;
+  grid-gap: 20px;
+}
+
+
+/* Top "banner" */
+.top {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-areas:
+    "hero hero cta1"
+    "hero hero cta2"
+}
+
+/* Hero image */
+.hero {
+  grid-area: hero;
+  min-height: 400px;
+  background: white url(images/taco.jpg);
+  background-size: cover;
+  background-position: bottom right;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+
+/* Labels on hero image */
+.hero > * {
+  background: var(--yellow);
+  padding: 5px;
+}
+
+/* Call To Action buttons */
+.cta {
+  background: var(--yellow);
+  display: grid;
+  align-items: center;
+  align-content: center;
+  justify-items: center;
+}
+
+/* CTA labels */
+.cta p {
+  margin: 0;
+}
+
+.cta1 {
+  grid-area: cta1;
+}
+
+.cta2 {
+  grid-area: cta2;
+}
+
+/* Price labels */
+.price {
+  font-size: 60px;
+  font-weight: 300;
+}
+
+
+/* Navigation */
+
+.menu ul {
+  display: grid;
+  grid-gap: 10px;
+  padding: 0;
+  /* Get rid of dots in <li> elements */
+  list-style: none;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+
+/* Navigation links */
+.menu a {
+  background: var(--yellow);
+  display: block;
+  /* Remove text underlining */
+  text-decoration: none;
+  padding: 10px;
+  /* Centering text */
+  text-align: center;
+  color: var(--black);
+  text-transform: uppercase;
+  font-size: 20px;
+  /* Increase size of link if text overflows */
+  /*overflow-wrap: break-word;*/
+}
+
+/* Menu button for small viewports */
+[aria-controls="menu-list"] {
+  display: none;
+}
+
+
+/* Features! */
+
+.features {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.feature {
+  background: lightblue;
+  padding: 10px;
+  border: 1px solid black;
+  text-align: center;
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+}
+
+.feature .icon {
+  font-size: 50px;
+}
+.feature p {
+  color: rgba(0,0,0,0.7)
+}
+
+
+/* About section */
+
+.about {
+  background: white;
+  padding: 50px;
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  align-items: center;
+}
+
+
+/* Gallery! */
+
+.gallery {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
+}
+
+.gallery h2 {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+.gallery h2:before, .gallery h2:after {
+  display: block;
+  content: '';
+  height: 10px;
+  /* linear-gradient(direction, startColor, endColor) */
+  background: linear-gradient(to var(--direction, left), var(--yellow), transparent);
+}
+
+.gallery h2:after {
+  --direction: right;
+}
+
+.gallery img {
+  width: 100%;
+}
+
+
+@media (max-width: 900px) {
+  .menu {
+    /* Will move menu to the top */
+    order: -1;
+    /*
+    Determines the distance between the z=0 plane and the user.
+    Each 3D element with z>0 becomes larger;
+    each 3D-element with z<0 becomes smaller.
+    */
+    perspective: 800px;
+  }
+
+  /* "Show menu" button  */
+  [aria-controls="menu-list"] {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  /* Hide menu */
+  .menu ul {
+    max-height: 0;
+    overflow: hidden;
+    transform: rotateX(90deg);
+    transition: all 0.5s;
+  }
+
+  /* TILDE === Following-sibling combinator */
+  [aria-expanded="true"] ~ ul {
+    display: grid;
+    max-height: 500px;
+    transform: rotateX(0);
+  }
+
+  [aria-expanded="false"] .close {
+    display: none;
+  }
+
+  [aria-expanded="true"] .open {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .top {
+    grid-template-areas:
+      "hero hero"
+      "cta1 cta2"
+  }
+
+
+  /* About */
+  .about {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (max-width: 500px) {
+  .top {
+    grid-template-areas:
+      "hero"
+      "cta1"
+      "cta2"
+  }
+}

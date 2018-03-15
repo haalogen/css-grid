@@ -88,19 +88,29 @@
 
     <section class="gallery">
       <h2>Instant Grams</h2>
-      <img src="https://source.unsplash.com/random/201x201" alt="">
-      <img src="https://source.unsplash.com/random/202x202" alt="">
-      <img src="https://source.unsplash.com/random/203x203" alt="">
-      <img src="https://source.unsplash.com/random/204x204" alt="">
-      <img src="https://source.unsplash.com/random/205x205" alt="">
-      <img src="https://source.unsplash.com/random/206x206" alt="">
-      <img src="https://source.unsplash.com/random/207x207" alt="">
-      <img src="https://source.unsplash.com/random/207x208" alt="">
-      <img src="https://source.unsplash.com/random/207x209" alt="">
-      <img src="https://source.unsplash.com/random/207x210" alt="">
+      <img src="images/201x201.jpeg" alt="">
+      <img src="images/202x202.jpeg" alt="">
+      <img src="images/203x203.jpeg" alt="">
+      <img src="images/204x204.jpeg" alt="">
+      <img src="images/205x205.jpeg" alt="">
+      <img src="images/206x206.jpeg" alt="">
+      <img src="images/207x207.jpeg" alt="">
+      <img src="images/207x208.jpeg" alt="">
+      <img src="images/207x209.jpeg" alt="">
+      <img src="images/207x210.jpeg" alt="">
     </section>
   </div>
 
+<script>
+  const navButton = document.querySelector('button[aria-expanded]');
+
+  function toggleNav ({ target }) {
+    const expanded = target.getAttribute('aria-expanded') === 'true' || false;
+    target.setAttribute('aria-expanded', !expanded);
+  }
+
+  navButton.addEventListener('click', toggleNav);
+</script>
 </body>
 
 </html>
