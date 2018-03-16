@@ -136,6 +136,7 @@
 
     p {
       line-height: 1.8;
+      margin: 20px 0;
     }
 
     img {
@@ -144,20 +145,73 @@
 
     a {
       color: black;
-      text-decoration: underline wavy var(--yellow);
+      text-decoration: underline wavy Tomato;
     }
 
     h1,
     h2 {
-      font-size: 80px;
+      font-size: 2.5rem;
       font-style: italic;
       font-weight: 100;
       margin: 0;
     }
 
     .post {
+      /* Centering */
+      max-width: 1000px;
+      margin: 200px auto;
       display: grid;
+      /* grid-gap:; ROW_GAP COLUMN_GAP */
+      grid-gap: 0 50px;
+      /* 15% 60% 25% of free width space */
+      grid-template-columns: 3fr 12fr 5fr;
     }
+
+    /* Every direct child of .post */
+    .post>* {
+      /* Span from track #2 (count from start) to track #2 (count from end) */
+      grid-column: 2 / -2;
+    }
+
+    .post>figure {
+      margin: 0;
+      grid-column: 1 / -1;
+    }
+
+    figcaption {
+      font-size: 0.6rem;
+    }
+    
+    .post>blockquote {
+      grid-column: 1 / -1;
+      font-size: 1.8rem;
+      font-style: italic;
+      text-align: center;
+      margin: 0;
+    }
+
+    /* Tips at the sides of blog */
+    .tip {
+      font-size: 0.8rem;
+      background: PapayaWhip;
+      padding: 1em;
+      align-self: start;
+      /* Hack: for really long tips */
+      grid-row: span 5;
+    }
+
+    .tip-left {
+      grid-column: 1 / span 1;
+      text-align: right;
+      border-right: 2px solid var(--yellow);
+    }
+
+    .tip-right {
+      grid-column: span 1 / -1;
+      text-align: left;
+      border-left: 2px solid var(--yellow);
+    }
+
   </style>
 
 </body>
